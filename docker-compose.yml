@@ -1,0 +1,25 @@
+# docker-compose.yml
+
+version: '2'
+
+services:
+  phpapp:
+    build:
+      context: ./Apache
+      dockerfile: Dockerfile
+    image: the-php-app
+    ports:
+      - "3000:80"
+    networks:
+      - webnet
+  nginxapp:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    image: the-nginx-app
+    ports:
+      - "7000:80"
+    networks:
+      - webnet
+networks:
+  webnet:

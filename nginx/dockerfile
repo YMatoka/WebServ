@@ -1,0 +1,2 @@
+FROM nginx
+COPY ./laravel/ /usr/share/nginx/html
